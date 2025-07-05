@@ -1,6 +1,11 @@
 # virtual env
-ipo_list_price/
+ipo_list_predictor/
 
+
+
+# notebooks
+*.ipynb
+test_model_load.py
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
