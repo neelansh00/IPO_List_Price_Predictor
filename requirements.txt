@@ -7,3 +7,6 @@ yfinance
 joblib
 streamlit
 xgboost
+selenium
+beautifulsoup4
+webdriver-manager
