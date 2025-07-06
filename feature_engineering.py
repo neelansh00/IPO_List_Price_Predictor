@@ -85,7 +85,8 @@ def make_processed_df(user_input: dict, scaler_path="models/scaler.pkl",feature_
     return processed_df
 
 
-'''if __name__ == "__main__":
+'''
+if __name__ == "__main__":
     url = "https://www.investorgain.com/ipo/hdb-financial/1276/"
     input_ipo_details_dict = scrape_ipo_subscription_data_from_url(url)
     output_dict = market_data_scraper(input_ipo_details_dict)
