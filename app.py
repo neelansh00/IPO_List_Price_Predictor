@@ -22,6 +22,9 @@ if st.button("Predict Listing Price"):
         st.error("Failed to scrape IPO details. Please check the URL or try again later.")
         st.stop()
     output_dict = market_data_scraper(input_ipo_details_dict)
+    if output_dict is None:
+        st.error("Failed to scrape market details. Please check the URL or try again later.")
+        st.stop()
     processed_df=make_processed_df(output_dict)
 
    
