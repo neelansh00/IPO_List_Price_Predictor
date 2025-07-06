@@ -6,6 +6,8 @@ ipo_list_predictor/
 # notebooks
 *.ipynb
 test_model_load.py
+feature_engg.py
+market_fetcher.py
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]

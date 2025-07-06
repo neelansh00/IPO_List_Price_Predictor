@@ -177,8 +177,9 @@ def scrape_ipo_subscription_data_from_url(url):
 
     return input_ipo_details_dict
 
-'''# Example usage
-if __name__ == "__main__":
+# Example usage
+'''if __name__ == "__main__":
     test_url = "https://www.investorgain.com/ipo/hdb-financial/1276/"
     result = scrape_ipo_subscription_data_from_url(test_url)
-    print(result)'''
+    print(result)
+'''
