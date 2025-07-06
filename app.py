@@ -18,6 +18,9 @@ url = st.text_input("Enter IPO URL", type="default")
 # Predict Button
 if st.button("Predict Listing Price"):
     input_ipo_details_dict = scrape_ipo_subscription_data_from_url(url)
+    if input_ipo_details_dict is None:
+        st.error("Failed to scrape IPO details. Please check the URL or try again later.")
+        st.stop()
     output_dict = market_data_scraper(input_ipo_details_dict)
     processed_df=make_processed_df(output_dict)
 
