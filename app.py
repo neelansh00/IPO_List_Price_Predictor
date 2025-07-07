@@ -27,7 +27,7 @@ if st.button("Predict Listing Price"):
         st.error("Failed to scrape market details. Please check the URL or try again later.")
         st.stop()
 
-    data_df = pd.DataFrame(output_dict.items(), columns=['Field', 'Value'])
+    data_df = pd.DataFrame([output_dict])
     st.success(f"💰 Output Dict {data_df}**")
 
     processed_df=make_processed_df(output_dict)
