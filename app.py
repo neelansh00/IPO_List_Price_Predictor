@@ -25,6 +25,10 @@ if st.button("Predict Listing Price"):
     if output_dict is None:
         st.error("Failed to scrape market details. Please check the URL or try again later.")
         st.stop()
+
+
+    st.success(f"💰 Output Dict {output_dict}**")
+
     processed_df=make_processed_df(output_dict)
 
    
