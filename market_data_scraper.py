@@ -11,7 +11,7 @@ def normalize_date(date_str):
     cleaned = re.sub(r'(\d+)(st|nd|rd|th)', r'\1', date_str)
     for fmt in ("%d %b %Y", "%d-%m-%Y", "%d %B %Y", "%d-%b-%Y", "%Y-%m-%d"):
         try:
-            return datetime.strptime(cleaned.strip(), fmt).strftime("%Y-%m-%d")
+            return datetime.strptime(cleaned.strip(), fmt)#.strftime("%Y-%m-%d")
         except Exception:
             continue
     return None
@@ -24,7 +24,7 @@ def market_data_scraper(ipo_dict):
 
     # Convert YYYY-MM-DD to DD-MM-YYYY for the API
     try:
-        date_obj = datetime.strptime(basis_date, "%Y-%m-%d")
+        date_obj = basis_date #datetime.strptime(basis_date, "%Y-%m-%d")
         api_date = date_obj.strftime("%d-%m-%Y")
     except Exception as e:
         print(f"Date format error: {e}")
@@ -43,7 +43,7 @@ def market_data_scraper(ipo_dict):
 
     # Ensure date is in YYYY-MM-DD
     try:
-        allot_date = datetime.strptime(basis_date, "%Y-%m-%d")
+        allot_date = basis_date#datetime.strptime(basis_date, "%Y-%m-%d")
     except Exception as e:
         print(f"Date format error: {e}")
         return ipo_dict
@@ -76,6 +76,7 @@ def market_data_scraper(ipo_dict):
                 try:
                     rec_date_obj = datetime.strptime(rec_date, "%d-%b-%Y")
                     rec_date_short = rec_date_obj.strftime("%Y-%m-%d")
+                    rec_date_short=normalize_date(rec_date_short)
                 except:
                     rec_date_short = rec_date[:10]
                 if rec_date_short == basis_date:
@@ -92,8 +93,8 @@ def market_data_scraper(ipo_dict):
 
     return ipo_dict
 
-'''if __name__ == "__main__":
-    url = "https://www.investorgain.com/ipo/hdb-financial/1276/"
-    input_ipo_details_dict = scrape_ipo_subscription_data_from_url(url)
-    output_dict = market_data_scraper(input_ipo_details_dict)
-    print(output_dict)'''
+#if __name__ == "__main__":
+#    url = "https://www.investorgain.com/ipo/hdb-financial/1276/"
+#    input_ipo_details_dict = scrape_ipo_subscription_data_from_url(url)
+#    output_dict = market_data_scraper(input_ipo_details_dict)
+#    print(output_dict)

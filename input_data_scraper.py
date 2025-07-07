@@ -54,7 +54,7 @@ def scrape_ipo_subscription_data_from_url(url):
         # Try parsing with known formats
         for fmt in ("%d %b %Y", "%d-%m-%Y", "%d %B %Y", "%d-%b-%Y"):
             try:
-                return datetime.strptime(cleaned.strip(), fmt).strftime("%Y-%m-%d")
+                return datetime.strptime(cleaned.strip(), fmt)#.strftime("%Y-%m-%d")
             except Exception:
                 continue
         return None
@@ -180,8 +180,7 @@ def scrape_ipo_subscription_data_from_url(url):
     return input_ipo_details_dict
 
 # Example usage
-'''if __name__ == "__main__":
-    test_url = "https://www.investorgain.com/ipo/hdb-financial/1276/"
-    result = scrape_ipo_subscription_data_from_url(test_url)
-    print(result)
-'''
+#if __name__ == "__main__":
+#    test_url = "https://www.investorgain.com/ipo/crizac-ipo/1308/"
+#    result = scrape_ipo_subscription_data_from_url(test_url)
+#    print(result)

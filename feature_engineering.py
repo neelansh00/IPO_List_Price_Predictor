@@ -23,7 +23,7 @@ def make_processed_df(user_input: dict, scaler_path="models/scaler.pkl",feature_
     feature_order=joblib.load(feature_order_path)
     # Parse listing date
     #listing_date = pd.to_datetime(user_input["IPO Listing Date"], "%Y-%m-%d")
-    listing_date = datetime.strptime(user_input["IPO Listing Date"], "%Y-%m-%d")
+    listing_date = user_input['IPO Listing Date']#datetime.strptime(user_input["IPO Listing Date"], "%Y-%m-%d")
     start_date = pd.to_datetime(start_date)
     days_since_start = (listing_date - start_date).days
     ## Fetch market data of the day before listing
@@ -36,7 +36,7 @@ def make_processed_df(user_input: dict, scaler_path="models/scaler.pkl",feature_
     day = listing_date.day
     dow = listing_date.weekday()
     #quarter = listing_date.
-    quarter=(month - 1) // 3 + 1
+    quarter=pd.Timestamp(listing_date).quarter#(month - 1) // 3 + 1
 
     ## prepping the data types
     ipo_issue_size=float(user_input["IPO Issue Size"].replace("₹","").replace(" Cr",""))
@@ -85,12 +85,11 @@ def make_processed_df(user_input: dict, scaler_path="models/scaler.pkl",feature_
     return processed_df
 
 
-'''
-if __name__ == "__main__":
-    url = "https://www.investorgain.com/ipo/hdb-financial/1276/"
-    input_ipo_details_dict = scrape_ipo_subscription_data_from_url(url)
-    output_dict = market_data_scraper(input_ipo_details_dict)
-    processed_df=make_processed_df(output_dict)
-    pd.set_option("display.max_columns",None)
-    print(processed_df)
-'''
+
+#if __name__ == "__main__":
+#    url = "https://www.investorgain.com/ipo/hdb-financial/1276/"
+#    input_ipo_details_dict = scrape_ipo_subscription_data_from_url(url)
+#    output_dict = market_data_scraper(input_ipo_details_dict)
+#    processed_df=make_processed_df(output_dict)
+#    pd.set_option("display.max_columns",None)
+#    print(processed_df)
