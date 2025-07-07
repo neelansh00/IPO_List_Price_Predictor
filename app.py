@@ -28,7 +28,9 @@ if st.button("Predict Listing Price"):
         st.stop()
 
     data_df = pd.DataFrame([output_dict])
-    st.success(f"💰 Output Dict {data_df}**")
+    st.dataframe(data_df)
+    #st.success(f"💰 Output Dict {data_df}**")
+
 
     processed_df=make_processed_df(output_dict)
 
