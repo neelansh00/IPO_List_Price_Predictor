@@ -4,6 +4,7 @@ import joblib
 from input_data_scraper import scrape_ipo_subscription_data_from_url
 from market_data_scraper import market_data_scraper
 from feature_engineering import make_processed_df
+import pandas as pd
 
 # Load model
 model = joblib.load("models/model.pkl")
@@ -26,8 +27,8 @@ if st.button("Predict Listing Price"):
         st.error("Failed to scrape market details. Please check the URL or try again later.")
         st.stop()
 
-
-    st.success(f"💰 Output Dict {output_dict}**")
+    data_df = pd.DataFrame(output_dict.items(), columns=['Field', 'Value'])
+    st.success(f"💰 Output Dict {data_df}**")
 
     processed_df=make_processed_df(output_dict)
 
