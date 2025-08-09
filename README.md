@@ -11,7 +11,7 @@
 5. go to https://www.investorgain.com/gmp/crizac-ipo/1308/ and scrap the ipo price and the gmp of the date stored in basis of allotment if the data of basis of allotment date not available fetch data of the date previous to it and 
 6. use basis of allotment date to scrap nifty and vix data of that date from https://in.investing.com/indices/s-p-cnx-nifty-historical-data and for vix from https://in.investing.com/indices/india-vix-historical-data
 7. store all this in data in dict and then the feature_engg.py does the sin cos tranfrom and the days since start and the quarter and the changes of datatypes and removing % signs and then scaling and then use to predict and then return prediction along with percentage increase or decrease from ipo issue price
-8. Results achieved for all applied models :-
+#### 8. Results achieved for all applied models :-
    Decision Tree 
     r2 score: 0.9685028271999611
     mae: 29.00333333333333
@@ -29,3 +29,7 @@
     mae: 18.219043477376303
     mape: 0.07536364984130016
     rmse: 28.578984790717133
+
+
+https://github.com/user-attachments/assets/a6549f6d-b3a5-4811-9477-5cdfab1cf7c3
+
